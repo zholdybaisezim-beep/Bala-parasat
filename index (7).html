@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Бала Парасат — білім және тәрбие платформасы</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#263238}
+header{background:linear-gradient(135deg,#6b8e5a,#9ab86d);color:white;padding:28px 18px;text-align:center}
+header h1{margin:0 0 8px;font-size:30px} header p{margin:0}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:white;padding:12px;box-shadow:0 2px 10px #0001}
+nav button{border:0;background:#eef4e9;padding:11px 18px;border-radius:12px;cursor:pointer;font-weight:700;color:#3d5833}
+nav button.active{background:#6b8e5a;color:white}
+main{max-width:1050px;margin:22px auto;padding:0 15px}
+.section{display:none}.section.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:white;border-radius:18px;padding:20px;box-shadow:0 5px 18px #00000010}
+.card h2,.card h3{margin-top:0;color:#4f713f}
+.info{background:#eef6e9;border-left:5px solid #6b8e5a;padding:14px;border-radius:10px;margin:12px 0}
+input,textarea,select{width:100%;padding:11px;border:1px solid #ccd5c8;border-radius:10px;margin:7px 0 12px;font:inherit}
+.action{background:#6b8e5a;color:#fff;border:0;border-radius:10px;padding:11px 16px;cursor:pointer}
+ul{line-height:1.8;padding-left:22px}
+footer{text-align:center;padding:25px;color:#65706a}
+.small{font-size:13px;color:#68756d}
+</style>
+</head>
+<body>
+<header>
+<h1>🌱 Бала Парасат</h1>
+<p>Мектепалды даярлыққа арналған білім және тәрбие платформасы</p>
+</header>
+
+<nav>
+<button class="active" onclick="showTab('home',this)">Басты бет</button>
+<button onclick="showTab('teacher',this)">👩‍🏫 Мұғалім кабинеті</button>
+<button onclick="showTab('student',this)">🧒 Оқушы кабинеті</button>
+<button onclick="showTab('parent',this)">👨‍👩‍👧 Ата-ана кабинеті</button>
+<button onclick="showTab('child',this)">🌱 Бала ерекшеліктері</button>
+</nav>
+
+<main>
+<section id="home" class="section active">
+<div class="card">
+<h2>Қош келдіңіз!</h2>
+<p>Бұл платформа баланың жас және жеке ерекшеліктерін ескере отырып, білім мен тәрбиені ұйымдастыруға көмектеседі.</p>
+<div class="grid">
+<div class="card"><h3>📚 Білім</h3><p>Қарапайым әрі қызықты оқу тапсырмалары.</p></div>
+<div class="card"><h3>💚 Тәрбие</h3><p>Қарым-қатынас, әдеп және жақсы әдеттерді дамыту.</p></div>
+<div class="card"><h3>🧠 Даму</h3><p>Баланың сөйлеу, ойлау, қимыл және шығармашылық қабілеттерін қолдау.</p></div>
+</div>
+</div>
+</section>
+
+<section id="teacher" class="section">
+<div class="card">
+<h2>👩‍🏫 Мұғалім кабинеті</h2>
+<div class="info"><b>Негізгі қағида:</b> әр баланың жасына, қабілетіне және жеке ерекшелігіне сай жұмыс жасау.</div>
+<h3>Сабақ жоспары</h3>
+<textarea id="plan" rows="5" placeholder="Бүгінгі сабақ жоспарын жазыңыз..."></textarea>
+<button class="action" onclick="save('plan')">Сақтау</button>
+<p id="planMsg" class="small"></p>
+</div>
+</section>
+
+<section id="student" class="section">
+<div class="card">
+<h2>🧒 Оқушы кабинеті</h2>
+<div class="grid">
+<div class="card"><h3>🔤 Сөйлеу</h3><p>Жаңа сөздерді үйрену және әңгімелеу.</p></div>
+<div class="card"><h3>🔢 Математика</h3><p>Санау, салыстыру және логикалық ойындар.</p></div>
+<div class="card"><h3>🎨 Шығармашылық</h3><p>Сурет салу, құрастыру, қиялды дамыту.</p></div>
+</div>
+</div>
+</section>
+
+<section id="parent" class="section">
+<div class="card">
+<h2>👨‍👩‍👧 Ата-ана кабинеті</h2>
+<p>Балаңыздың күнделікті жетістіктерін бақылауға және мұғаліммен байланыс жасауға арналған бөлім.</p>
+<div class="info">💡 Үйде баланы басқа балалармен салыстырмай, оның өз жетістігін қолдаңыз.</div>
+<textarea id="note" rows="4" placeholder="Мұғалімге хабарлама..."></textarea>
+<button class="action" onclick="save('note')">Сақтау</button>
+<p id="noteMsg" class="small"></p>
+</div>
+</section>
+
+<section id="child" class="section">
+<div class="card">
+<h2>🌱 Баланың ерекшеліктерін ескеру</h2>
+<div class="grid">
+<div class="card"><h3>👶 Жас ерекшелігі</h3><p>Тапсырма баланың жасына сай, қысқа және түсінікті болуы керек.</p></div>
+<div class="card"><h3>🧠 Даму ерекшелігі</h3><p>Сөйлеу, есте сақтау, ойлау, зейін және қимыл дағдылары ескеріледі.</p></div>
+<div class="card"><h3>💛 Жеке ерекшелігі</h3><p>Баланың қызығушылығы, қарқыны және қабілеті назарға алынады.</p></div>
+<div class="card"><h3>🤝 Білім мен тәрбие</h3><p>Білім беру мен тәрбиені бірге ұйымдастыру баланың жан-жақты дамуына көмектеседі.</p></div>
+</div>
+</div>
+</section>
+</main>
+<footer>© 2026 «Бала Парасат» • Интернетсіз де жұмыс істейді</footer>
+
+<script>
+function showTab(id,btn){
+ document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+}
+function save(id){
+ const v=document.getElementById(id).value;
+ localStorage.setItem('bala-parasat-'+id,v);
+ document.getElementById(id+'Msg').textContent='Сақталды ✓';
+}
+window.addEventListener('load',()=>{
+ ['plan','note'].forEach(id=>{
+   const v=localStorage.getItem('bala-parasat-'+id);
+   if(v) document.getElementById(id).value=v;
+ });
+});
+</script>
+</body>
+</html>
