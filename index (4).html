@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бала Парасат</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f7f4fb;color:#343247}
+header{background:linear-gradient(135deg,#b9a7df,#9fcfc7);padding:28px 7%;color:white}
+.logo{font-size:30px;font-weight:700}.sub{margin-top:7px;font-size:15px}
+nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+nav button,.role button{border:0;border-radius:14px;padding:12px 18px;background:white;color:#62557d;cursor:pointer;font-weight:600}
+.container{max-width:1100px;margin:28px auto;padding:0 20px}
+.hero{background:white;border-radius:24px;padding:30px;box-shadow:0 8px 25px #0000000d}
+h1{margin:0 0 10px;font-size:32px}.hero p{color:#716c7c}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:25px}
+.card{background:white;border-radius:22px;padding:24px;box-shadow:0 7px 22px #0000000b}
+.card h3{margin-top:8px}.icon{font-size:35px}
+.card button{border:0;background:#b8a6dc;color:white;border-radius:12px;padding:11px 16px;cursor:pointer}
+.section{display:none;margin-top:22px}.section.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.progress{height:10px;background:#eee;border-radius:20px;overflow:hidden}.progress span{display:block;height:100%;background:#9bc8bd}
+.item{padding:14px;background:#faf9fd;border-radius:14px;margin:10px 0}
+.back{background:#eee!important;color:#555!important}
+@media(max-width:700px){.roles,.grid{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🌱 Бала Парасат</div>
+  <div class="sub">Мектепалды даярлыққа арналған білім және тәрбие платформасы • Офлайн жұмыс істейді</div>
+  <nav>
+    <button onclick="show('home')">Басты бет</button>
+    <button onclick="show('teacher')">Мұғалім</button>
+    <button onclick="show('child')">Оқушы</button>
+    <button onclick="show('parent')">Ата-ана</button>
+  </nav>
+</header>
+
+<main class="container">
+<section id="home" class="section active">
+ <div class="hero">
+  <h1>Бала Парасат</h1>
+  <p>Әр баланың жас және жеке даму ерекшелігін ескеріп, білім мен тәрбиені біріктіретін заманауи платформа.</p>
+  <div class="roles">
+   <div class="card"><div class="icon">👩‍🏫</div><h3>Мұғалім кабинеті</h3><p>Балалардың даму картасын бақылау, тапсырма беру және нәтижені көру.</p><button onclick="show('teacher')">Кабинетке кіру</button></div>
+   <div class="card"><div class="icon">🧒</div><h3>Оқушы кабинеті</h3><p>Ойындар, танымдық тапсырмалар және тәрбиелік кейстер.</p><button onclick="show('child')">Кабинетке кіру</button></div>
+   <div class="card"><div class="icon">👨‍👩‍👧</div><h3>Ата-ана кабинеті</h3><p>Баланың жетістігі мен даму динамикасын бақылау.</p><button onclick="show('parent')">Кабинетке кіру</button></div>
+  </div>
+ </div>
+</section>
+
+<section id="teacher" class="section">
+ <div class="hero"><button class="back" onclick="show('home')">← Басты бет</button><h1>👩‍🏫 Мұғалім кабинеті</h1>
+ <div class="grid">
+  <div class="card"><h3>Балалар тізімі</h3><div class="item">Айару — даму деңгейі: Жақсы</div><div class="item">Али — даму деңгейі: Орташа</div><div class="item">Аяла — даму деңгейі: Өте жақсы</div></div>
+  <div class="card"><h3>Жеке даму картасы</h3><p>Танымдық даму</p><div class="progress"><span style="width:80%"></span></div><p>Сөйлеу</p><div class="progress"><span style="width:65%"></span></div><p>Әлеуметтік даму</p><div class="progress"><span style="width:90%"></span></div></div>
+ </div></div>
+</section>
+
+<section id="child" class="section">
+ <div class="hero"><button class="back" onclick="show('home')">← Басты бет</button><h1>🧒 Оқушы кабинеті</h1>
+ <div class="roles">
+  <div class="card"><div class="icon">🎮</div><h3>Ойындар</h3><p>Суретті сәйкестендір, сана және тап.</p><button onclick="alert('Ойын басталды!')">Бастау</button></div>
+  <div class="card"><div class="icon">🌱</div><h3>Тәрбиелік кейс</h3><p>Досың көмек сұрады. Сен не істейсің?</p><button onclick="alert('Жауабың қабылданды!')">Жауап беру</button></div>
+  <div class="card"><div class="icon">⭐</div><h3>Менің жетістіктерім</h3><p>Бүгін: 3 тапсырма орындалды.</p><button onclick="alert('Жарайсың!')">Көру</button></div>
+ </div></div>
+</section>
+
+<section id="parent" class="section">
+ <div class="hero"><button class="back" onclick="show('home')">← Басты бет</button><h1>👨‍👩‍👧 Ата-ана кабинеті</h1>
+ <div class="grid">
+  <div class="card"><h3>Баланың даму бағыты</h3><div class="item">🧠 Танымдық — жақсы</div><div class="item">🗣 Сөйлеу — орташа</div><div class="item">🤝 Әлеуметтік — жақсы</div><div class="item">🎨 Шығармашылық — өте жақсы</div></div>
+  <div class="card"><h3>Мұғалім ұсынысы</h3><p>Үйде балаға сурет бойынша қысқа әңгіме құрату және бірге кітап оқу ұсынылады.</p></div>
+ </div></div>
+</section>
+</main>
+<script>
+function show(id){
+ document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
